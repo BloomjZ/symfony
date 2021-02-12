@@ -9,26 +9,34 @@ img {
     
 }
 
+/*****************************************
+*                                         
+*                  Header
+*
+*****************************************/
 
-header nav {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 0;
-    /* display: block; */
-    /* padding: 15px 0; */
-    /* margin: 9px 0;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out ;
-    color: #fff; */
+
+
+
+nav {
+    background: #aeae81;
+    height: 80px;
+    width: 100%;
+}
+
+label.logo{
+    color: white;
+    font-size: 30px;
+    line-height: 80px;
+
 }
 
 
-
+/* 
 .sticky{
     background: rgba(0, 0, 0, 0.90);
     color: #fff;
-}
+} */
 
 
 /*     SECTION HOME     */
@@ -86,6 +94,17 @@ body.index article {
     padding: 1rem;
 }
 
+
+
+/*****************************************
+*                                         
+*                  Footer 
+*
+*****************************************/
+
+
+
+
 footer{
     position: static;
     bottom: 0px;
@@ -131,6 +150,7 @@ footer{
     /* background: #f12020; */
 
 }
+
 
 .left .content p{
     text-align: justify;
@@ -195,6 +215,7 @@ padding: 0 2px;
     margin: 10px 0;
 
 }
+
 .right form .text{
     font-size: 1.0625rem;
     margin-bottom: 2px;
