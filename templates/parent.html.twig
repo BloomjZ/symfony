@@ -12,14 +12,31 @@
 		<header>
         {% block navbar %}
 			<nav>
-				<a href="#">accueil</a>
-				<a href="#">galerie</a>
-				<a href="#">contact</a>
+				 <a href="{{ path('index') }}">accueil</a>
+            	 <a href="{{ path('galerie') }}">galerie</a>
+            	 <a href="{{ path('contact') }}">contact</a>
+
 			</nav>
         {% endblock %}
 		</header>
 
 		<main>
+		{% block home %}
+		 <section class="sections home text-center">
+            <div class="overlay1">
+                <div class="container">
+                    <div class="home-content">
+                        <h3 class="home-title">Olivier RIGAH</h3>
+                        <p class="lead home-desc line-1 anim-typewriter">
+                            Bonjour, Je suis Olivier, Web Developer.
+                        </p>
+                        <buton class="btn button">Start Now</buton>
+                        <buton class="btn button">Discover more</buton>
+                    </div>
+                </div>
+            </div>
+        </section>
+		{% endblock %}
 			<section>
 		{% block titre1 %}
 					<h1>MON TITRE1</h1>

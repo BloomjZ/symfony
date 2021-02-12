@@ -16,9 +16,32 @@ des blocks definis par le parent
 {% endblock %}
 
 
+{% block home %}
+		 <section class="sections home text-center">
+            <div class="overlay1">
+                <div class="container">
+                    <div class="home-content">
+                        <h3 class="home-title">Olivier RIGAH</h3>
+                        <p class="lead home-desc line-1 anim-typewriter">
+                            Bonjour, Je suis Olivier, Web Developer.
+                        </p>
+                        <buton class="btn button">Start Now</buton>
+                        <buton class="btn button">Discover more</buton>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}
+
 
 {% block titre1 %}
 	<h1>Bienvenue</h1>
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ (messageConfirmation ?? "texte par défaut") |raw}}
+{{ form_end(form) }}
 {% endblock %}
 
 

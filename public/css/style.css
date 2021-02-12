@@ -31,6 +31,51 @@ header nav {
 }
 
 
+/*     SECTION HOME     */
+
+.home{
+    height: 650px;
+    background-image: url('../images/photo17.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.home .home-content{
+    position: absolute;
+    top :50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.home .home-title{
+    color: #628a2e;
+    font-size : 60px;
+    margin-bottom: 20px;
+}
+
+.home .home-desc{
+    color: #fff;
+    font-size: 50px;
+}
+
+.home .button{
+    background:  #aeae81d3;
+    color: #fff;
+    width: 150px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
+.gris {
+    background-color: #cccccc;
+}
+
+.vert {
+    background-color: lightgreen;
+}
+
 body.index section {
     display: flex;
     flex-wrap: wrap;
