@@ -8,11 +8,13 @@ des blocks definis par le parent
 
 
 {% block navbar %}
-	<nav>
-		<a href="#">accueil</a>
-		<a href="#">galerie</a>
-		<a href="#">contact</a>
-	</nav>
+	<nav class"col-md-9 col-xs-12">
+					<ul class="nav-list">
+						<li class="list"><a href="{{ path('index') }}">accueil</a></li>
+						<li class="list"><a href="{{ path('galerie') }}">galerie</a></li>
+						<li class="list"><a href="{{ path('contact') }}">contact</a></li>
+					</ul>
+			</nav>
 {% endblock %}
 
 
@@ -33,6 +35,243 @@ des blocks definis par le parent
         </section>
 {% endblock %}
 
+{% block section1 %}
+	        <section class="sections about">
+            <div class="container">
+                <div class="section-header texte-center">
+                    <h2 class="section-title">About Me 🙈</h2>
+                    <div class="line"><span></span></div>
+                    <p>Bonjour, Je suis Olivier, jeunehomme de 29 ans propriétaire de 3 chats très envahissants, en pleine reconversion professionnel dans le Developpement Web et Web mobil.</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="about-info">
+                            <h3>Bienvenue dans mon <span>univers</span></h3>
+                            <p class="about-info-desc">
+                                Bonjour et bienvenue, je suis Olivier jeune Développeur Web et Web Mobil.
+                                Voici ma premiere créatrion en  HTML, CSS, JS. Cessi est une premiere ébauche alors essayer d'étre indulgeant 🙏🏾.
+                                Ma volonté avec était de créer un site pour partager mon contidient avec du dévelopement (présentaion de pojets en tout genre, ébanche et test...), un blog où on pourré y trouver mes/des photos(voyages, streetart, festivals etc)
+                            </p>
+                            <a href="portfolio.html" button class="about-info-btn">Portfolio</a></button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="about-img">
+                            {# <img src="images/Avatar.png" alt="Avatar"> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sections center-of-interest">
+            <div class="container">
+                <div class="section-header texte-center">
+                    <h2 class="section-title">Center of Interest</h2>
+                    <div class="line"><span></span></div>
+                    <p>Dans cette partie je vous en dis plus centre d'interet et passe temps. </p>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                        <div class="serv">
+                            <i class="icon fas fa-cat fa-lg"></i>
+                            <h3 class="serv-title">ANIMAUX</h3>
+                            <p class="serv-desc">Comme expliqué plus haut heureux propritaire de 3 chats 😽🐱‍👤🐱</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="serv">
+                            <i class="icon fab fa-steam fa-lg"></i>
+                            <h3 class="serv-title">GAMING</h3>
+                            <p class="serv-desc">Pationné depuis très jeune par les jeux videos et tout le côté compétitif que l'on pouvait y retrouver. J'ai eu la chance de pouvoi intéger des teams et d'évoluer dans un milieu amateur/semi-professionnel, notement sur la license Counter-strike Source et Rainbow Six Siege.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="serv">
+                            <i class="icon fab fa-twitch fa-lg"></i>
+                            <h3 class="serv-title">XXXXX</h3>
+                            <p class="serv-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+                                recusandae ad
+                                repudiandae harum odio et.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="serv">
+                            <i class="icon fas fa-plane-departure fa-lg"></i>
+                            <h3 class="serv-title">VOYAGES</h3>
+                            <p class="serv-desc">"Le plus beau voyage, c'est celui qu'on n’a pas encore fait"  Loïck Peyron</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="serv">
+                            <i class="icon fas fa-wine-glass fa-lg"></i>
+                            <h3 class="serv-title">XXXXX</h3>
+                            <p class="serv-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+                                recusandae ad
+                                repudiandae harum odio et.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                        <div class="serv">
+                            <i class="icon fas fa-laptop-code fa-lg"></i>
+                            <h3 class="serv-title">INFORMATIQUE</h3>
+                            <p class="serv-desc"> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="section-header texte-center">
+                    <h2 class="section-title">Portfolio</h2>
+                    <div class="line"><span></span></div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum corrupti tempora
+                        perspiciatis
+                        at?</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo15.jpg" alt="photo15" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo18.jpg" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo16.jpg" alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo17.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo14.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo15.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo17.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo6.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo11.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo14.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/photo18.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content"></i></div>
+                                </div>
+                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+		{% endblock %}
+
+
+{% block section2 %}
+{% endblock %}
+
 
 {% block titre1 %}
 	<h1>Bienvenue</h1>
@@ -47,10 +286,6 @@ des blocks definis par le parent
 
 
 {% block paragraphe1 %}
-	<p>Bonjour et bienvenue, je suis Olivier jeune Développeur Web et Web Mobile.
-       Voici ma premiere créatrion en  HTML, CSS, JS. Ceci est une premiere ébauche alors essayer d'étre indulgeant 🙏🏾.
-       Ma volonté avec était de créer un site pour partager mon contidient avec du dévelopement (présentaion de pojets en tout genre, ébanche et un blog où on pourré y trouver mes/des photos(voyages, streetart, festivals etc)</p>
-	<img src="images/photo1.jpg" alt="photo1">
 {% endblock %}
 
 

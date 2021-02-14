@@ -1,43 +1,152 @@
-h1 {
-    color:#aeae81;
+/*  Génaral Styles  */
+
+
+body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', Verdana, sans-serif;
+}
+
+/*                      HEADER                  */
+
+
+.section{
+    padding: 20px 0;
+}
+
+.overlay1{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+}
+
+
+.section-header .section-title {
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+}
+
+.section-header .line{
+    width: 150px;
+    background: #ddd;
+    height: 3px;
+    margin:auto;
+}
+
+.section-header .line span{
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: #aeae81;
+    margin: auto;
+    position: relative;
+    bottom: 0.5px;
+
+}
+
+.section-header p{
+    width: 50%;
+    margin : 40px auto;
+    color: #888;
+    line-height: 1.5;
+}
+
+
+
+header{
+    height: auto;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 99999;
+    
+}
+
+header i.icon{
+    position: absolute;
+    right: 30px;
+    top: 32px;
+    z-index: 10;
+    display: none;
+}
+
+header .logo img {
+    
+    width: 25%;
+    
+    
+
 }
 
 img {
     width:100%;
     max-height: 40vh;
     object-fit: cover;
-    
 }
 
-/*****************************************
-*                                         
-*                  Header
-*
-*****************************************/
-
-
-
-
-nav {
-    background: #aeae81;
-    height: 80px;
-    width: 100%;
+.gris {
+    background-color: #cccccc;
 }
 
-label.logo{
-    color: white;
-    font-size: 30px;
-    line-height: 80px;
+.vert {
+    background-color: lightgreen;
+}
+
+header nav .nav-list{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0;
+}
+
+header nav .nav-list .list a{
+    display: block;
+    padding: 15px 0;
+    margin: 9px 0;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out ;
+    color: #fff;
 
 }
 
+header nav .nav-list .list a:hover{
+    color: #7cb62f;
+}
 
-/* 
 .sticky{
     background: rgba(0, 0, 0, 0.90);
     color: #fff;
-} */
+}
 
+
+
+@media (max-width:575px){
+    header nav .nav-list{
+        display: block;
+        text-align: center;
+        padding: 0;
+    }
+    header .logo{
+        text-align: center;
+
+    }
+
+    header i.icon{
+        position: absolute;
+        right: 30px;
+        top: 32px;
+        z-index: 10;
+        display: block;
+    }
+}
+
+.section-header p{
+
+ width: 85%;
+}
+    
 
 /*     SECTION HOME     */
 
@@ -54,10 +163,11 @@ label.logo{
     top :50%;
     left: 50%;
     transform: translate(-50%,-50%);
+    text-align: center !important;
 }
 
 .home .home-title{
-    color: #628a2e;
+    color: #fff;
     font-size : 60px;
     margin-bottom: 20px;
 }
@@ -68,7 +178,7 @@ label.logo{
 }
 
 .home .button{
-    background:  #aeae81d3;
+    background: #aeae81d3;
     color: #fff;
     width: 150px;
     text-align: center;
@@ -76,34 +186,216 @@ label.logo{
 }
 
 
-.gris {
-    background-color: #cccccc;
-}
-
-.vert {
-    background-color: lightgreen;
-}
-
-body.index section {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-body.index article {
-    width: calc(100% / 3);
-    padding: 1rem;
+.container img {
+        width:100%;
+        max-height: 100vh;
+        object-fit: cover;
+        display: flex;
+        
 }
 
 
 
-/*****************************************
-*                                         
-*                  Footer 
-*
-*****************************************/
+
+
+/* 
 
 
 
+                    ANIMATION NOM ET P 
+
+
+
+*/
+
+
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Anonymous+Pro);
+
+.line-1{
+    position: relative;
+    top: 50%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+
+
+/* Animation */
+.anim-typewriter{
+  animation: typewriter 4s steps(44) 1s 1 normal both,
+             blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{width: 0;}
+  to{width: 24em;}
+}
+@keyframes blinkTextCursor{
+  from{border-right-color: rgba(255,255,255,.75);}
+  to{border-right-color: transparent;}
+}
+
+
+
+/* 
+
+
+                            MEDIA QUERYS
+
+
+*/
+
+
+
+@media (max-width:575px){
+    .home .home-title{
+        font-size: 22px;
+    }
+
+    .home .button{
+        margin-bottom: 10px;
+    }
+}
+
+/* A Propos de moi  */
+
+.about .about-info h3{
+    font-size: 25px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.about .about-info h3 span{
+    color: #7cb62f;
+
+}
+
+.about .about-info .about-info-desc{
+    line-height: 1.8;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+
+.about .about-info .about-info-btn{
+    background-color: #aeae81;
+    padding: 10px 20px;
+    border:0;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.about .about-img img{
+    width: 70%;
+}
+
+@media (max-width: 575px){   /* Tres petit écran */
+    .about .about-info h3{
+        font-size: 20px;
+    }
+}
+
+@media (min-width:576px) and (max-width:768px){   /* Petit écran */
+    .about .about-info{
+        text-align: center;
+    }
+}  
+
+
+
+
+/*           
+                
+
+                            Center of Interest          
+                    
+                    
+                    
+*/
+
+.center-of-interest{
+    
+    background: #f7f7f7;
+    /* height: 650px;
+    background-image: url('../images/fg2.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;  */
+    
+}
+
+.center-of-interest .serv{
+    background: rgba(146, 142, 142, 0.377);
+    padding: 20px;
+    text-align: center;
+}
+
+.center-of-interest .serv .icon{
+    background: #aeae81;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.center-of-interest .serv-title{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.center-of-interest .serv-desc{
+    font-size: 17px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.center-of-interest .serv{
+    margin-bottom: 20px;
+}
+
+
+/*    
+
+
+                Pour mettre de l'espace entre scetion et bottom   
+
+
+*/
+.test{
+    margin-bottom: 400px;
+}
+
+
+  .overlay {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay img {
+    width: 40%;
+    border: 20px solid white;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+}
 
 footer{
     position: static;
@@ -113,13 +405,13 @@ footer{
 }
 
 .main-content{
-    display: flex;
+display: flex;
 }
-    
+
 .main-content .box{
-        flex-basis: 50%;
-        padding: 30px 100px;
-        padding-bottom: 10px;
+    flex-basis: 50%;
+    padding: 30px 100px;
+    padding-bottom: 10px;
 }
 
 .box h2{
@@ -150,7 +442,6 @@ footer{
     /* background: #f12020; */
 
 }
-
 
 .left .content p{
     text-align: justify;
@@ -215,7 +506,6 @@ padding: 0 2px;
     margin: 10px 0;
 
 }
-
 .right form .text{
     font-size: 1.0625rem;
     margin-bottom: 2px;
@@ -285,3 +575,18 @@ padding: 0 2px;
     text-decoration: underline;
 
 }
+
+  @media screen and (max-width: 900px){
+      footer{
+          position: relative;
+          bottom: 0px; 
+      }
+
+      .main-content{
+          flex-wrap: wrap;
+          flex-direction: column;
+      }
+      .main-content .box{
+          margin: 5px 0;
+      }
+  }
