@@ -6,15 +6,33 @@ le template enfant ne fait que remplir
 des blocks definis par le parent
 #}
 
+{% block logo %}
+{% endblock %}	
+
 
 {% block navbar %}
-	<nav class"col-md-9 col-xs-12">
-					<ul class="nav-list">
-						<li class="list"><a href="{{ path('index') }}">accueil</a></li>
-						<li class="list"><a href="{{ path('galerie') }}">galerie</a></li>
-						<li class="list"><a href="{{ path('contact') }}">contact</a></li>
-					</ul>
-			</nav>
+	<div class="row">
+                <!-- Ican Bar Nav -->
+                <i class="icon fa fa-bars fa-2x"></i>
+
+                <!-- Mon logo -->
+                <div class="col-md-3 col-xs-12">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="O">
+                    </div>
+                </div>
+
+				<nav class"col-md-9 col-xs-12">
+                      <ul class="nav-list ">
+                        <li class="list"><a href="/">Home</a></li>
+                        <li class="list"><a href="#">About</a></li>
+                        <li class="list"><a href="#">Center of Interest</a></li>
+                        <li class="list"><a href="/galerie">Portfolio</a></li>
+                        <li class="list"><a href="#">Blog</a></li>
+                        <li class="list"><a href="/contact">Contact</a></li>
+                    </ul>
+	 			</nav>
+			</div>
 {% endblock %}
 
 
@@ -41,23 +59,23 @@ des blocks definis par le parent
                 <div class="section-header texte-center">
                     <h2 class="section-title">About Me 🙈</h2>
                     <div class="line"><span></span></div>
-                    <p>Bonjour, Je suis Olivier, jeunehomme de 29 ans propriétaire de 3 chats très envahissants, en pleine reconversion professionnel dans le Developpement Web et Web mobil.</p>
+                    {# <p>Bonjour, Je suis Olivier, jeunehomme de 29 ans propriétaire de 3 chats très envahissants, en pleine reconversion professionnel dans le Developpement Web et Web mobil.</p> #}
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="about-info">
                             <h3>Bienvenue dans mon <span>univers</span></h3>
                             <p class="about-info-desc">
-                                Bonjour et bienvenue, je suis Olivier jeune Développeur Web et Web Mobil.
+                                Bonjour et bienvenue, je suis Olivier jeune Développeur Web et Web Mobile.
                                 Voici ma premiere créatrion en  HTML, CSS, JS. Cessi est une premiere ébauche alors essayer d'étre indulgeant 🙏🏾.
                                 Ma volonté avec était de créer un site pour partager mon contidient avec du dévelopement (présentaion de pojets en tout genre, ébanche et test...), un blog où on pourré y trouver mes/des photos(voyages, streetart, festivals etc)
                             </p>
-                            <a href="portfolio.html" button class="about-info-btn">Portfolio</a></button>
+                            <a href="/galerie" button class="about-info-btn">Portfolio</a></button>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="about-img">
-                            {# <img src="images/Avatar.png" alt="Avatar"> #}
+                            <img src="images/Avatar.png" alt="Avatar">
                         </div>
                     </div>
                 </div>

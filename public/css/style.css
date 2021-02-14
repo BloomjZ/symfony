@@ -9,7 +9,7 @@ body{
 
 
 .section{
-    padding: 20px 0;
+    padding-bottom: 50px;
 }
 
 .overlay1{
@@ -74,7 +74,8 @@ header i.icon{
 
 header .logo img {
     
-    width: 25%;
+    width: 
+    20%;
     
     
 
@@ -97,7 +98,7 @@ img {
 header nav .nav-list{
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 0;
 }
 
@@ -269,6 +270,7 @@ header nav .nav-list .list a:hover{
     font-size: 25px;
     font-weight: normal;
     margin-bottom: 20px;
+    
 }
 
 .about .about-info h3 span{
@@ -294,7 +296,13 @@ header nav .nav-list .list a:hover{
 }
 
 .about .about-img img{
-    width: 70%;
+
+    width: 100%;
+    
+}
+
+.about-img{
+    float: right;
 }
 
 @media (max-width: 575px){   /* Tres petit écran */
@@ -323,6 +331,7 @@ header nav .nav-list .list a:hover{
 
 .center-of-interest{
     
+    padding: 30px;
     background: #f7f7f7;
     /* height: 650px;
     background-image: url('../images/fg2.jpg');

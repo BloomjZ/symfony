@@ -11,14 +11,30 @@
 	</head>
 	<body>
 		<header>
-        {% block navbar %}
-			<nav class"col-md-9 col-xs-12">
-					<ul class="nav-list">
-						<li class="list"><a href="{{ path('index') }}">accueil</a></li>
-						<li class="list"><a href="{{ path('galerie') }}">galerie</a></li>
-						<li class="list"><a href="{{ path('contact') }}">contact</a></li>
-					</ul>
-			</nav>
+		{% block navbar %}
+			<div class="row">
+
+                <!-- Ican Bar Nav -->
+                <i class="icon fa fa-bars fa-2x"></i>
+
+                <!-- Mon logo -->
+                <div class="col-md-3 col-xs-12">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="O">
+                    </div>
+                </div>
+
+				<nav class"col-md-9 col-xs-12">
+                      <ul class="nav-list">
+                        <li class="list"><a href="/">Home</a></li>
+                        <li class="list"><a href="#">About</a></li>
+                        <li class="list"><a href="#">Center of Interest</a></li>
+                        <li class="list"><a href="/galerie">Portfolio</a></li>
+                        <li class="list"><a href="#">Blog</a></li>
+                        <li class="list"><a href="/contact">Contact</a></li>
+                    </ul>
+	 			</nav>
+			</div>
         {% endblock %}
 		</header>
 
@@ -53,7 +69,7 @@
                         <div class="about-info">
                             <h3>Bienvenue dans mon <span>univers</span></h3>
                             <p class="about-info-desc">
-                                Bonjour et bienvenue, je suis Olivier jeune Développeur Web et Web Mobil.
+                                Bonjour et bienvenue, je suis Olivier jeune Développeur Web et Web Mobile.
                                 Voici ma premiere créatrion en  HTML, CSS, JS. Cessi est une premiere ébauche alors essayer d'étre indulgeant 🙏🏾.
                                 Ma volonté avec était de créer un site pour partager mon contidient avec du dévelopement (présentaion de pojets en tout genre, ébanche et test...), un blog où on pourré y trouver mes/des photos(voyages, streetart, festivals etc)
                             </p>
