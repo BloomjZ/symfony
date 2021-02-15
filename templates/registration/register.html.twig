@@ -9,15 +9,22 @@
 
     <h1>Register</h1>
 
+    <hr>
     {{ form_start(registrationForm) }}
 
-        {{ form_row(registrationForm.email) }}
+        
         {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.email) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            label: "J'accepte les conditions"
+        }) }}
 
         <button type="submit" class="btn btn-primary">Register</button>
+        <hr>
     {{ form_end(registrationForm) }}
+    <hr>
+   
 {% endblock %}
