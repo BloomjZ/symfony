@@ -39,8 +39,11 @@ class RegistrationController extends AbstractController
                 )
             );
 
+            // Completer les infos manquantes 
+            $user->setDateCreation(new \DateTime());
+            // Ajoute la ligne dans la table SQL
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
+            $entityManager->persist($user);  // INSERT INTO...
             $entityManager->flush();
 
             // generate a signed url and email it to the user
