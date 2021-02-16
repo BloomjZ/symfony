@@ -23,7 +23,6 @@
                         <img src="images/logo.png" alt="O">
                     </div>
                 </div>
-
 				<nav class"col-md-9 col-xs-12">
                       <ul class="nav-list">
                         <li class="list"><a href="/">Home</a></li>
@@ -34,6 +33,18 @@
                         <li class="list"><a href="/contact">Contact</a></li>
                     </ul>
 	 			</nav>
+                {% if app.user %}
+                    <div class="mb-3">
+                         Bienvenue {{ app.user.username }}, 
+                         <a href="{{ path('admin') }}">admin</a>
+                         <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    </div>
+                {% else %}
+                    <nav>
+                        <a href="{{ path('app_register') }}">créez votre compte</a>
+                        <a href="{{ path('app_login') }}">connexion</a>
+                    </nav>
+                {% endif %}
 			</div>
         {% endblock %}
 		</header>
