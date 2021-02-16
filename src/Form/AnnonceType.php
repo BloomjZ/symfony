@@ -15,7 +15,7 @@ class AnnonceType extends AbstractType
             ->add('titre')
             ->add('contenu')
             ->add('image')
-            ->add('datePublication')
+            // ->add('datePublication')
             ->add('slug')
         ;
     }

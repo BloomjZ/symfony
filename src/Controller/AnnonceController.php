@@ -28,7 +28,15 @@ class AnnonceController extends AbstractController
         $form = $this->createForm(AnnonceType::class, $annonce);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()
+        ) {
+            // compléter les infos manquantes
+            $annonce->setDatePublication(new \DateTime());
+            // ajouter l'auteur de l'annonce avec l'utilisateur connecté
+            $userConnecte = $this->getUser();
+            $annonce->setUser($userConnecte);
+
+            // code qui insère la nouvelle ligne dans SQL
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($annonce);
             $entityManager->flush();
