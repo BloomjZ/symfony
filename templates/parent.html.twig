@@ -5,392 +5,271 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Mon Projet Symfony</title>
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
 		<header>
-		{% block navbar %}
-			<div class="row">
+			{% block navbar %}
+				<div
+					class="row">
 
-                <!-- Ican Bar Nav -->
-                <i class="icon fa fa-bars fa-2x"></i>
+					<!-- Ican Bar Nav -->
+					<i class="icon fa fa-bars fa-2x"></i>
 
-                <!-- Mon logo -->
-                <div class="col-md-3 col-xs-12">
-                    <div class="logo">
-                        <img src="images/logo.png" alt="O">
-                    </div>
-                </div>
-				<nav class"col-md-9 col-xs-12">
-                      <ul class="nav-list">
-                        <li class="list"><a href="/">Home</a></li>
-                        <li class="list"><a href="#">About</a></li>
-                        <li class="list"><a href="#">Center of Interest</a></li>
-                        <li class="list"><a href="/galerie">Portfolio</a></li>
-                        <li class="list"><a href="#">Blog</a></li>
-                        <li class="list"><a href="/contact">Contact</a></li>
-                    </ul>
-	 			</nav>
-                {% if app.user %}
-                    <div class="mb-3">
-                         Bienvenue {{ app.user.username }}, 
-                         <a href="{{ path('admin') }}">admin</a>
-                         <a href="{{ path('app_logout') }}">Déconnexion</a>
-                    </div>
-                {% else %}
-                    <nav>
-                        <a href="{{ path('app_register') }}">créez votre compte</a>
-                        <a href="{{ path('app_login') }}">connexion</a>
-                    </nav>
-                {% endif %}
-			</div>
-        {% endblock %}
+					<!-- Mon logo -->
+					<div class="col-md-3 col-xs-12">
+						<div class="logo">
+							<img src="images/logo.png" alt="O">
+						</div>
+					</div>
+					<nav class"col-md-9 col-xs-12">
+						<ul class="nav-list">
+							<li class="list">
+								<a href="/">Home</a>
+							</li>
+							<li class="list">
+								<a href="#">About</a>
+							</li>
+							<li class="list">
+								<a href="#">Annonces</a>
+							</li>
+							<li class="list">
+								<a href="/galerie">Portfolio</a>
+							</li>
+							<li class="list">
+								<a href="#">Blog</a>
+							</li>
+							<li class="list">
+								<a href="/contact">Contact</a>
+							</li>
+						</ul>
+					</nav>
+					{% if is_granted('ROLE_ADMIN') %}
+						<div class="mb-3">
+							Bienvenue
+							{{ app.user.username }},
+							<a href="{{ path('admin') }}">admin</a>
+							<a href="{{ path('app_logout') }}">Déconnexion</a>
+						</div>
+					{% elseif is_granted('ROLE_ADMIN')%}
+						<div class="mb-3">
+							Bienvenue
+							{{ app.user.username }},
+							<a href="{{ path('membre') }}">espace membre</a>
+							<a href="{{ path('app_logout') }}">Déconnexion</a>
+						</div>
+					{% else %}
+						<nav>
+							<a href="{{ path('app_register') }}">créez votre compte</a>
+							<a href="{{ path('app_login') }}">connexion</a>
+						</nav>
+					{% endif %}
+				</div>
+			{% endblock %}
 		</header>
 
 		<main>
-		{% block home %}
-		 <section class="sections home text-center">
-            <div class="overlay1">
-                <div class="container">
-                    <div class="home-content">
-                        <h3 class="home-title">Olivier RIGAH</h3>
-                        <p class="lead home-desc line-1 anim-typewriter">
-                            Bonjour, Je suis Olivier, Web Developer.
-                        </p>
-                        <buton class="btn button">Start Now</buton>
-                        <buton class="btn button">Discover more</buton>
-                    </div>
-                </div>
-            </div>
-        </section>
-		{% endblock %}
+			{% block home %}
+				<section class="sections home text-center">
+					<div class="overlay1">
+						<div class="container">
+							<div class="home-content">
+								<h3 class="home-title">Olivier RIGAH</h3>
+								<p class="lead home-desc line-1 anim-typewriter">
+									Bonjour, Je suis Olivier, Web Developer.
+								</p>
+								<buton class="btn button">Start Now</buton>
+								<buton class="btn button">Discover more</buton>
+							</div>
+						</div>
+					</div>
+				</section>
+			{% endblock %}
 
-		{% block section1 %}
-	        <section class="sections about">
-            <div class="container">
-                <div class="section-header texte-center">
-                    <h2 class="section-title">About Me 🙈</h2>
-                    <div class="line"><span></span></div>
-                    <p>Bonjour, Je suis Olivier, jeunehomme de 29 ans propriétaire de 3 chats très envahissants, en pleine reconversion professionnel dans le Developpement Web et Web mobil.</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="about-info">
-                            <h3>Bienvenue dans mon <span>univers</span></h3>
-                            <p class="about-info-desc">
-                                Bonjour et bienvenue, je suis Olivier jeune Développeur Web et Web Mobile.
-                                Voici ma premiere créatrion en  HTML, CSS, JS. Cessi est une premiere ébauche alors essayer d'étre indulgeant 🙏🏾.
-                                Ma volonté avec était de créer un site pour partager mon contidient avec du dévelopement (présentaion de pojets en tout genre, ébanche et test...), un blog où on pourré y trouver mes/des photos(voyages, streetart, festivals etc)
-                            </p>
-                            <a href="portfolio.html" button class="about-info-btn">Portfolio</a></button>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="about-img">
-                            {# <img src="images/Avatar.png" alt="Avatar"> #}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+			{% block annonces %}
+			{% endblock %}
 
-        <section class="sections center-of-interest">
-            <div class="container">
-                <div class="section-header texte-center">
-                    <h2 class="section-title">Center of Interest</h2>
-                    <div class="line"><span></span></div>
-                    <p>Dans cette partie je vous en dis plus centre d'interet et passe temps. </p>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 col-xs-12">
-                        <div class="serv">
-                            <i class="icon fas fa-cat fa-lg"></i>
-                            <h3 class="serv-title">ANIMAUX</h3>
-                            <p class="serv-desc">Comme expliqué plus haut heureux propritaire de 3 chats 😽🐱‍👤🐱</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="serv">
-                            <i class="icon fab fa-steam fa-lg"></i>
-                            <h3 class="serv-title">GAMING</h3>
-                            <p class="serv-desc">Pationné depuis très jeune par les jeux videos et tout le côté compétitif que l'on pouvait y retrouver. J'ai eu la chance de pouvoi intéger des teams et d'évoluer dans un milieu amateur/semi-professionnel, notement sur la license Counter-strike Source et Rainbow Six Siege.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="serv">
-                            <i class="icon fab fa-twitch fa-lg"></i>
-                            <h3 class="serv-title">XXXXX</h3>
-                            <p class="serv-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-                                recusandae ad
-                                repudiandae harum odio et.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="serv">
-                            <i class="icon fas fa-plane-departure fa-lg"></i>
-                            <h3 class="serv-title">VOYAGES</h3>
-                            <p class="serv-desc">"Le plus beau voyage, c'est celui qu'on n’a pas encore fait"  Loïck Peyron</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="serv">
-                            <i class="icon fas fa-wine-glass fa-lg"></i>
-                            <h3 class="serv-title">XXXXX</h3>
-                            <p class="serv-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-                                recusandae ad
-                                repudiandae harum odio et.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-xs-12">
-                        <div class="serv">
-                            <i class="icon fas fa-laptop-code fa-lg"></i>
-                            <h3 class="serv-title">INFORMATIQUE</h3>
-                            <p class="serv-desc"> </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <div class="container">
-                <div class="section-header texte-center">
-                    <h2 class="section-title">Portfolio</h2>
-                    <div class="line"><span></span></div>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum corrupti tempora
-                        perspiciatis
-                        at?</p>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/photo15.jpg" alt="photo15" />
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/photo18.jpg" alt="" />
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/Portfolio/7.jpg" alt="" />
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"></i></div>
-                                </div>
-                                <img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt="" />
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-		{% endblock %}
-
-			<section>
-		{% block titre1 %}
-					<h1>MON TITRE1</h1>
-		{% endblock %}
-
-		{% block paragraphe1 %}
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, quisquam minima esse optio vero, dolorum velit consequatur voluptatem explicabo labore ipsum et ea perferendis autem ipsam quas recusandae culpa asperiores?</p>
-					<img src="images/photo1.jpg" alt="photo1">
-		{% endblock %}
+			{% block section1 %}
+				<section class="sections about">
+					<div class="container">
+						<div class="section-header texte-center">
+							<h2 class="section-title">About Me 🙈</h2>
+							<div class="line">
+								<span></span>
+							</div>
+							<p>Bonjour, Je suis Olivier, jeunehomme de 29 ans propriétaire de 3 chats très envahissants, en pleine reconversion professionnel dans le Developpement Web et Web mobil.</p>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="about-info">
+									<h3>Bienvenue dans mon
+										<span>univers</span>
+									</h3>
+									<p class="about-info-desc">
+										Bonjour et bienvenue, je suis Olivier jeune Développeur Web et Web Mobile.
+										                                Voici ma premiere créatrion en  HTML, CSS, JS. Cessi est une premiere ébauche alors essayer d'étre indulgeant 🙏🏾.
+										                                Ma volonté avec était de créer un site pour partager mon contidient avec du dévelopement (présentaion de pojets en tout genre, ébanche et test...), un blog où on pourré y trouver mes/des photos(voyages, streetart, festivals etc)
+									</p>
+									<a href="portfolio.html" button class="about-info-btn">Portfolio</a>
+								</button>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div
+								class="about-img">{# <img src="images/Avatar.png" alt="Avatar"> #}
+							</div>
+						</div>
+					</div>
+				</div>
 			</section>
-		</main>
 
-       
-		<footer>
-        {% block apropos %}
-			<div class="main-content">
-				<div class="left box">
-					<h2>About Me</h2>
-					<div class="content">
-						<p class="content-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae magni aperiam explicabo enim
-							                        voluptas possimus fuga voluptatum est modi exercitationem.
+			<section class="sections center-of-interest">
+				<div class="container">
+					<div class="section-header texte-center">
+						<h2 class="section-title">Center of Interest</h2>
+						<div class="line">
+							<span></span>
+						</div>
+						<p>Dans cette partie je vous en dis plus centre d'interet et passe temps.
 						</p>
-						<div class="social">
-							<a href="#">
-								<span class="fab fa-facebook-f"></span>
-							</a>
-							<a href="#">
-								<span class="fab fa-twitter"></span>
-							</a>
-							<a href="#">
-								<span class="fab fa-instagram"></span>
-							</a>
-							<a href="#">
-								<span class="fab fa-youtube"></span>
-							</a>
+					</div>
+					<div class="row">
+						<div class="col-md-4 col-xs-12">
+							<div class="serv">
+								<i class="icon fas fa-cat fa-lg"></i>
+								<h3 class="serv-title">ANIMAUX</h3>
+								<p class="serv-desc">Comme expliqué plus haut heureux propritaire de 3 chats 😽🐱‍👤🐱</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<div class="serv">
+								<i class="icon fab fa-steam fa-lg"></i>
+								<h3 class="serv-title">GAMING</h3>
+								<p class="serv-desc">Pationné depuis très jeune par les jeux videos et tout le côté compétitif que l'on pouvait y retrouver. J'ai eu la chance de pouvoi intéger des teams et d'évoluer dans un milieu amateur/semi-professionnel, notement sur la license Counter-strike Source et Rainbow Six Siege.</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<div class="serv">
+								<i class="icon fab fa-twitch fa-lg"></i>
+								<h3 class="serv-title">XXXXX</h3>
+								<p class="serv-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+									                                recusandae ad
+									                                repudiandae harum odio et.</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<div class="serv">
+								<i class="icon fas fa-plane-departure fa-lg"></i>
+								<h3 class="serv-title">VOYAGES</h3>
+								<p class="serv-desc">"Le plus beau voyage, c'est celui qu'on n’a pas encore fait"  Loïck Peyron</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<div class="serv">
+								<i class="icon fas fa-wine-glass fa-lg"></i>
+								<h3 class="serv-title">XXXXX</h3>
+								<p class="serv-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
+									                                recusandae ad
+									                                repudiandae harum odio et.</p>
+							</div>
+						</div>
+						<div class="col-md-4 col-xs-12">
+							<div class="serv">
+								<i class="icon fas fa-laptop-code fa-lg"></i>
+								<h3 class="serv-title">INFORMATIQUE</h3>
+								<p class="serv-desc"></p>
+							</div>
 						</div>
 					</div>
 				</div>
-        {% endblock %}
+			</section>
+			<section>
+				<div class="container">
+					<div class="section-header texte-center">
+						<h2 class="section-title">Portfolio</h2>
+						<div class="line">
+							<span></span>
+						</div>
+						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum corrupti tempora
+							                        perspiciatis
+							                        at?</p>
+					</div>
+					<div class="row">
+						<div class="col-lg-4 col-sm-6 mb-4">
+							<div class="portfolio-item">
+								<a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+									<div class="portfolio-hover">
+										<div class="portfolio-hover-content"></i>
+									</div>
+								</div>
+								<img class="img-fluid rounded m-3 lightbox" src="images/photo15.jpg" alt="photo15"/>
+							</a>
+						</div>
+					</div>
+					<div class="col-lg-4 col-sm-6 mb-4">
+						<div class="portfolio-item">
+							<a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+								<div class="portfolio-hover">
+									<div class="portfolio-hover-content"></i>
+								</div>
+							</div>
+							<img class="img-fluid rounded m-3 lightbox" src="images/photo18.jpg" alt=""/>
+						</a>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6 mb-4">
+					<div class="portfolio-item">
+						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content"></i>
+							</div>
+						</div>
+						<img class="img-fluid rounded m-3 lightbox" src="images/Portfolio/7.jpg" alt=""/>
+					</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+				<div class="portfolio-item">
+					<a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+						<div class="portfolio-hover">
+							<div class="portfolio-hover-content"></i>
+						</div>
+					</div>
+					<img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/>
+				</a>
 
-		{% block formulaire %}
-					<div class="center box">
-						<h2>Address</h2>
-						<div class="content">
-							<div class="place">
-								<span class="fas fa-map-marker-alt"></span>
-								<span class="text ">Marseille, France</span>
-							</div>
-							<div class="phone">
-								<span class="fas fa-phone-alt"></span>
-								<span class="text ">+33 677 38 64 78</span>
-							</div>
-							<div class="email">
-								<span class="fas fa-envelope"></span>
-								<span class="text ">olivier.rigah54@gmail.com</span>
-							</div>
-						</div>
-					</div>
-					<div class="right box">
-						<h2>Contact us</h2>
-						<div class="content">
-							<form action="#">
-								<div class="email">
-									<div class="text">Email *</div>
-									<input type="email" name="user_email" required>
-								</div>
-								<div class="msg">
-									<div class="text">Message *</div>
-									<textarea rows="2" cols="25" name="user_message" required></textarea>
-								</div>
-								<div class="btn">
-									<button type="submit">Send</button>
-								</div>
-							</form>
+			</div>
+		</body>
+	</html>
+</div>
+<div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+	<div class="portfolio-item">
+		<a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+			<div class="portfolio-hover">
+				<div class="portfolio-hover-content"></i>
+			</div>
+		</div>
+		<img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/>
+	</a>
 
-						</div>
-					</div>
-				</div>
-				<div class="bottom">
-					<a href=""></a>
-					<center>
-						<span class="credit">Created By
-							<a href="#">Olivier RIGAH</a>
-						</span>
-						<span class="far fa-copyright"></span>
-						<span>
-							2020 All rights reserved.</span>
-					</center>
-				</div>
-			</footer>
-		{% endblock %}
-		<script src="js/script.js"></script>
-	</body>
-</html>
+</div></div><div class="col-lg-4 col-sm-6">
+<div class="portfolio-item">
+	<a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+		<div class="portfolio-hover">
+			<div class="portfolio-hover-content"></i>
+		</div>
+	</div>
+	<img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/>
+</a></div></div></div><div class="row"><div class="col-lg-4 col-sm-6 mb-4"><div class="portfolio-item">
+<a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+	<div class="portfolio-hover">
+		<div class="portfolio-hover-content"></i>
+	</div>
+</div>
+<img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/></a></div></div><div class="col-lg-4 col-sm-6 mb-4"><div class="portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+<div class="portfolio-hover">
+	<div class="portfolio-hover-content"></i>
+</div></div><img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/></a></div></div><div class="col-lg-4 col-sm-6 mb-4"><div class="portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal3"><div class="portfolio-hover">
+<div class="portfolio-hover-content"></i></div></div><img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/></a></div></div><div class="col-lg-4 col-sm-6 mb-4 mb-lg-0"><div class="portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal4"><div class="portfolio-hover"><div class="portfolio-hover-content"></i></div></div><img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/></a></div></div><div class="col-lg-4 col-sm-6 mb-4 mb-sm-0"><div class="portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal5"><div class="portfolio-hover"><div class="portfolio-hover-content"></i></div></div><img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/></a></div></div><div class="col-lg-4 col-sm-6"><div class="portfolio-item"><a class="portfolio-link" data-toggle="modal" href="#portfolioModal6"><div class="portfolio-hover"><div class="portfolio-hover-content"></i></div></div><img class="img-fluid rounded m-3 lightbox" src="images/.jpg" alt=""/></a></div></div></div> </div></section></main>{% endblock %}<section>{% block titre1 %}<h1>MON TITRE1</h1>{% endblock %}{% block paragraphe1 %}<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, quisquam minima esse optio vero, dolorum velit consequatur voluptatem explicabo labore ipsum et ea perferendis autem ipsam quas recusandae culpa asperiores?</p><img src="images/photo1.jpg" alt="photo1">{% endblock %}</section></main><footer>{% block apropos %}<div class="main-content"><div class="left box"> <h2>About Me</h2> <div class="content"><p class="content-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae magni aperiam explicabo enim
+								                        voluptas possimus fuga voluptatum est modi exercitationem.</p><div class="social"><a href="#"><span class="fab fa-facebook-f"></span></a><a href="#"><span class="fab fa-twitter"></span></a><a href="#"><span class="fab fa-instagram"></span></a><a href="#"><span class="fab fa-youtube"></span></a></div> </div></div>{% endblock %}{% block formulaire %}<div class="center box"> <h2>Address</h2> <div class="content"><div class="place"><span class="fas fa-map-marker-alt"></span><span class="text ">Marseille, France</span></div><div class="phone"><span class="fas fa-phone-alt"></span><span class="text ">+33 677 38 64 78</span></div><div class="email"><span class="fas fa-envelope"></span><span class="text ">olivier.rigah54@gmail.com</span></div> </div></div><div class="right box"> <h2>Contact us</h2> <div class="content"><form action="#"><div class="email"><div class="text">Email *</div><input type="email" name="user_email" required></div><div class="msg"><div class="text">Message *</div><textarea rows="2" cols="25" name="user_message" required></textarea></div><div class="btn"><button type="submit">Send</button></div></form> </div></div></div><div class="bottom"><a href=""></a><center> <span class="credit">Created By<a href="#">Olivier RIGAH</a> </span> <span class="far fa-copyright"></span> <span>2020 All rights reserved.</span></center></div></footer>{% endblock %}<script src="js/script.js"></script></body></html>

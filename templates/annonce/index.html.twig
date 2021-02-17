@@ -10,10 +10,10 @@
             <tr>
                 <th>Id</th>
                 <th>Titre</th>
+                <th>Slug</th>
                 <th>Contenu</th>
                 <th>Image</th>
                 <th>DatePublication</th>
-                <th>Slug</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,10 +22,10 @@
             <tr>
                 <td>{{ annonce.id }}</td>
                 <td>{{ annonce.titre }}</td>
+                <td>{{ annonce.slug }}</td>
                 <td>{{ annonce.contenu }}</td>
                 <td>{{ annonce.image }}</td>
                 <td>{{ annonce.datePublication ? annonce.datePublication|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ annonce.slug }}</td>
                 <td>
                     <a href="{{ path('annonce_show', {'id': annonce.id}) }}">show</a>
                     <a href="{{ path('annonce_edit', {'id': annonce.id}) }}">edit</a>
@@ -41,3 +41,4 @@
 
     <a href="{{ path('annonce_new') }}">Create new</a>
 {% endblock %}
+
