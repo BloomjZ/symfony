@@ -1,21 +1,26 @@
 {% extends 'parent.html.twig' %}
 
 {% block titre1 %}
-<h1>Une seule Annonce</h1>
+	<h1>Une seule Annonce</h1>
 {% endblock %}
 
 {% block annonces %}
-<section class="container">
-    <div class="annonces">
-        <article>
-            <h3><a href="{{ path('annonce', {'slug': annonce.slug, 'id': annonce.id}) }}">{{ annonce.titre }}</a></h3>
-            <div>publié par {{ annonce.user.username }}</div>
-            <p>{{ annonce.contenu }}</p>
-            <div>{{ annonce.image }}</div>
-            <div>{{ annonce.datePublication ? annonce.datePublication|date('Y-m-d H:i') : '' }}</div>
-        </article>
-    </div>
-</section>
+	<section class="container">
+		<div class="annonces">
+			<article>
+				<h3>
+					<a href="{{ path('annonce', {'slug': annonce.slug, 'id': annonce.id}) }}">{{ annonce.titre }}</a>
+				</h3>
+				<div>publié par
+					{{ annonce.user.username }}</div>
+				<p>{{ annonce.contenu }}</p>
+				{% if annonce.image %}
+					<div><img src="{{ asset('uploads/' ~ annonce.image) }}" class="img-fluid"></div>
+				{% endif %}
+				<div>{{ annonce.datePublication ? annonce.datePublication|date('Y-m-d H:i') : '' }}</div>
+			</article>
+		</div>
+	</section>
 {% endblock %}
 
 {% block formulaire %}
@@ -66,5 +71,4 @@
 		<span>
 			2020 All rights reserved.</span>
 	</center>
-</div>
-{% endblock %}
+</div>{% endblock %}

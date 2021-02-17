@@ -1,59 +1,62 @@
 {% extends 'parent.html.twig' %}
 
 {% block titre1 %}
-<h1>Liste des Annonces</h1>
+	<h1>Liste des Annonces</h1>
 {% endblock %}
 
 {% block annonces %}
-<section class="container">
-    <div class="annonces">
-       {% for annonce in annonces %}
-            <article>
-                <h3><a href="{{ path('annonce', {'slug': annonce.slug, 'id': annonce.id}) }}">{{ annonce.titre }}</a></h3>
-                <div>publié par {{ annonce.user.username }}</div>
-                <p>{{ annonce.contenu }}</p>
-                <div>{{ annonce.image }}</div>
-                <div>{{ annonce.datePublication ? annonce.datePublication|date('d/m/Y à H:i') : '' }}</div>
-            </article>
-        {% else %}
-            <article>
-                <div>aucune annonce n'est publiée</div>
-            </article>
-        {% endfor %}
+	<section class="container">
+		<div class="annonces">
+			{% for annonce in annonces %}
+				<article>
+					<h3>
+						<a href="{{ path('annonce', {'slug': annonce.slug, 'id': annonce.id}) }}">{{ annonce.titre }}</a>
+					</h3>
+					<div>publié par
+						{{ annonce.user.username }}</div>
+					<p>{{ annonce.contenu }}</p>
+					{% if annonce.image %}
+						<div><img src="{{ asset('uploads/' ~ annonce.image) }}" class="img-fluid"></div>
+					{% endif %}
+					<div>{{ annonce.datePublication ? annonce.datePublication|date('d/m/Y à H:i') : '' }}</div>
+				</article>
+			{% else %}
+				<article>
+					<div>aucune annonce n'est publiée</div>
+				</article>
+			{% endfor %}
 
-    </div>
-</section>
+		</div>
+	</section>
 {% endblock %}
 
-{% block home %}
-{% endblock %}
+{% block home %}{% endblock %}
 
 
-{% block section1 %}
-{% endblock %}
+{% block section1 %}{% endblock %}
 
 {% block navbar %}
-		{# <div class="row">
-
-                <!-- Ican Bar Nav -->
-                <i class="icon fa fa-bars fa-2x"></i>
-
-                <!-- Mon logo -->
-                <div class="col-md-3 col-xs-12">
-                    <div class="logo">
-                        <img src="images/logo.png" alt="O">
-                    </div>
-                </div>
-
-				<nav class"col-md-9 col-xs-12">
-                      <ul class="nav-list">
-                        <li class="list"><a href="/">Home</a></li>
-                        <li class="list"><a href="#">About</a></li>
-                        <li class="list"><a href="#">Center of Interest</a></li>
-                        <li class="list"><a href="/galerie">Portfolio</a></li>
-                        <li class="list"><a href="#">Blog</a></li>
-                        <li class="list"><a href="/contact">Contact</a></li>
-                    </ul>
-	 			</nav>
-			</div> #}
+	{# <div class="row">
+	
+	                <!-- Ican Bar Nav -->
+	                <i class="icon fa fa-bars fa-2x"></i>
+	
+	                <!-- Mon logo -->
+	                <div class="col-md-3 col-xs-12">
+	                    <div class="logo">
+	                        <img src="images/logo.png" alt="O">
+	                    </div>
+	                </div>
+	
+					<nav class"col-md-9 col-xs-12">
+	                      <ul class="nav-list">
+	                        <li class="list"><a href="/">Home</a></li>
+	                        <li class="list"><a href="#">About</a></li>
+	                        <li class="list"><a href="#">Center of Interest</a></li>
+	                        <li class="list"><a href="/galerie">Portfolio</a></li>
+	                        <li class="list"><a href="#">Blog</a></li>
+	                        <li class="list"><a href="/contact">Contact</a></li>
+	                    </ul>
+		 			</nav>
+				</div> #}
 {% endblock %}
